@@ -2,7 +2,7 @@
 
 ## File structure
 
-./graphics:all plots and figures\n
+./graphics:all plots and figures <br />
 ./stats:statistics for experiments
 ./data:data files
 ./papers:papers to reference
