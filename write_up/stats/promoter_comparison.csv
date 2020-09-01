@@ -1,0 +1,5 @@
+,Accuracy,MCC,Sensitivity,Specificity
+Nucleic Transformer,0.8806,0.7612,0.8818,0.8794
+MULTiPly,0.8668,0.7224,0.8656,0.8668
+iPromoter-2L2.0,0.8498,0.6998,0.8413,0.8584
+iPromoter-2L1.0,0.8168,0.6343,0.792,0.8416
