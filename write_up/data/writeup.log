@@ -1,0 +1,370 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.4)  15 JUL 2020 21:44
+entering extended mode
+**./writeup.tex
+(writeup.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-05-15>
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size11.clo"
+File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.sty
+"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry
+.sty"
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.s
+ty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifvtex.st
+y"
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.sty
+"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count175
+\Gm@cntv=\count176
+\c@Gm@tempcnt=\count177
+\Gm@bindingoffset=\dimen135
+\Gm@wd@mp=\dimen136
+\Gm@odd@mp=\dimen137
+\Gm@even@mp=\dimen138
+\Gm@layoutwidth=\dimen139
+\Gm@layoutheight=\dimen140
+\Gm@layouthoffset=\dimen141
+\Gm@layoutvoffset=\dimen142
+\Gm@dimlist=\toks18
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry
+.cfg"))
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx
+.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics
+.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty
+"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\grap
+hics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdft
+ex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen143
+\Gin@req@width=\dimen144
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/booktabs\booktabs
+.sty"
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen145
+\lightrulewidth=\dimen146
+\cmidrulewidth=\dimen147
+\belowrulesep=\dimen148
+\belowbottomsep=\dimen149
+\aboverulesep=\dimen150
+\abovetopsep=\dimen151
+\cmidrulesep=\dimen152
+\cmidrulekern=\dimen153
+\defaultaddspace=\dimen154
+\@cmidla=\count178
+\@cmidlb=\count179
+\@aboverulesep=\dimen155
+\@belowrulesep=\dimen156
+\@thisruleclass=\count180
+\@lastruleclass=\count181
+\@thisrulewidth=\dimen157
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty"
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen158
+\ar@mcellbox=\box45
+\extrarowheight=\dimen159
+\NC@list=\toks19
+\extratabsurround=\skip49
+\backup@length=\skip50
+\ar@cellbox=\box46
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/paralist\paralist
+.sty"
+Package: paralist 2017/01/22 v2.7 Extended list environments
+\pltopsep=\skip51
+\plpartopsep=\skip52
+\plitemsep=\skip53
+\plparsep=\skip54
+\pl@lab=\toks20
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\verbatim.st
+y"
+Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks21
+\verbatim@line=\toks22
+\verbatim@in@stream=\read2
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subfig.sty
+"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption.s
+ty"
+Package: caption 2020/05/10 v3.4j Customizing captions (AR)
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption3.
+sty"
+Package: caption3 2020/05/10 v1.11 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen160
+\captionmargin@=\dimen161
+\captionwidth=\dimen162
+\caption@tempdima=\dimen163
+\caption@indent=\dimen164
+\caption@parindent=\dimen165
+\caption@hangindent=\dimen166
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count182
+\c@continuedfloat=\count183
+)
+\c@KVtest=\count184
+\sf@farskip=\skip55
+\sf@captopadj=\dimen167
+\sf@capskip=\skip56
+\sf@nearskip=\skip57
+\c@subfigure=\count185
+\c@subfigure@save=\count186
+\c@lofdepth=\count187
+\c@subtable=\count188
+\c@subtable@save=\count189
+\c@lotdepth=\count190
+\sf@top=\skip58
+\sf@bottom=\skip59
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tocbibind\tocbibi
+nd.sty"
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has section divisions on input line 50.
+
+
+Package tocbibind Note: Using section or other style headings.
+
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tocloft\tocloft.s
+ty"
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has section divisions on input line 51.
+\cftparskip=\skip60
+\cftbeforetoctitleskip=\skip61
+\cftaftertoctitleskip=\skip62
+\cftbeforepartskip=\skip63
+\cftpartnumwidth=\skip64
+\cftpartindent=\skip65
+\cftbeforesecskip=\skip66
+\cftsecindent=\skip67
+\cftsecnumwidth=\skip68
+\cftbeforesubsecskip=\skip69
+\cftsubsecindent=\skip70
+\cftsubsecnumwidth=\skip71
+\cftbeforesubsubsecskip=\skip72
+\cftsubsubsecindent=\skip73
+\cftsubsubsecnumwidth=\skip74
+\cftbeforeparaskip=\skip75
+\cftparaindent=\skip76
+\cftparanumwidth=\skip77
+\cftbeforesubparaskip=\skip78
+\cftsubparaindent=\skip79
+\cftsubparanumwidth=\skip80
+\cftbeforeloftitleskip=\skip81
+\cftafterloftitleskip=\skip82
+\cftbeforefigskip=\skip83
+\cftfigindent=\skip84
+\cftfignumwidth=\skip85
+\cftbeforelottitleskip=\skip86
+\cftafterlottitleskip=\skip87
+\cftbeforetabskip=\skip88
+\cfttabindent=\skip89
+\cfttabnumwidth=\skip90
+\cftbeforesubfigskip=\skip91
+\cftsubfigindent=\skip92
+\cftsubfignumwidth=\skip93
+\cftbeforesubtabskip=\skip94
+\cftsubtabindent=\skip95
+\cftsubtabnumwidth=\skip96
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backe
+nd-pdfmode.def"
+File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count191
+\l__pdf_internal_box=\box47
+) (writeup.aux)
+\openout1 = `writeup.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-
+pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count192
+\scratchdimen=\dimen168
+\scratchbox=\box48
+\nofMPsegments=\count193
+\nofMParguments=\count194
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count195
+\MPscratchDim=\dimen169
+\MPnumerator=\count196
+\makeMPintoPDFobject=\count197
+\everyMPtoPDFconversion=\toks24
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epst
+opdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/generic/infwarerr\infwa
+rerr.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/grfext\grfext.sty
+"
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvdefinekeys\kv
+definekeys.sty"
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/kvoptions\kvoptio
+ns.sty"
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds
+.sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvsetkeys\kvset
+keys.sty"
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+("C:\Users\Shujun\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdftexcmds\pdftex
+cmds.sty"
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 50.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 50.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 50.
+ [1
+
+{C:/Users/Shujun/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (writeup.a
+ux) ) 
+Here is how much of TeX's memory you used:
+ 4001 strings out of 480799
+ 66101 string characters out of 2895318
+ 307740 words of memory out of 3000000
+ 19973 multiletter control sequences out of 15000+200000
+ 536585 words of font info for 38 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 47i,6n,49p,205b,183s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Shujun/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmbx12.pfb><C:/Users/Shujun/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><C:/Users/Shujun/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Shujun/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on writeup.pdf (1 page, 45436 bytes).
+PDF statistics:
+ 22 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
