@@ -1,0 +1,7 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Methods}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Benchmark dataset}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{DNA as a language}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{K-mer aggregation with 1-D convolutional layers}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Transformers and self-attention}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Multitasking learning}{section.2}% 7
