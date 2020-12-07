@@ -6,8 +6,6 @@ Source code to reproduce results in the paper "NUCLEIC TRANSFORMER: DEEP LEARNIN
   <img src="https://github.com/Shujun-He/Nucleic-Transformer/blob/master/graphics/overview.PNG"/>
 </p>
 
-![alt text]()
-
 
 # Requirements
 
