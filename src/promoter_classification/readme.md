@@ -1,10 +1,7 @@
 # Source code to train nucleic transformer to reproduce results in the paper
 
-To run:
+Dataset is included here in v9d3.csv
 
-$ ./run.sh
+To run: $ ./run.sh
 
-
-To get cross validation results:
-
-$ ./evaluate.sh
+To get cross validation results: $ ./evaluate.sh

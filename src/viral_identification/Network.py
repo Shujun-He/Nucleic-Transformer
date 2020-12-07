@@ -118,28 +118,29 @@ class PositionalEncoding(nn.Module):
 
 
 class K_mer_aggregate(nn.Module):
-    def __init__(self,kmers,in_dim,out_dim,dropout=0.1,stride=1):
+    def __init__(self,kmers,in_dim,out_dim,dropout=0.1):
         super(K_mer_aggregate, self).__init__()
-        self.dropout=nn.Dropout(dropout)
+        #self.dropout=nn.Dropout(dropout)
         self.convs=[]
         for i in kmers:
             print(i)
-            self.convs.append(nn.Conv1d(in_dim,out_dim,i,stride=stride,padding=0))
+            self.convs.append(nn.Conv1d(in_dim,out_dim,i,padding=0))
         self.convs=nn.ModuleList(self.convs)
-        self.activation=nn.ReLU(inplace=True)
+        self.norm=nn.LayerNorm(out_dim)
+        #self.activation=nn.ReLU(inplace=True)
         #self.activation=Mish()
 
     def forward(self,x):
         outputs=[]
         for conv in self.convs:
-            outputs.append(self.dropout(self.activation(conv(x))))
+            outputs.append(conv(x))
         outputs=torch.cat(outputs,dim=2)
-        return outputs
+        return self.norm(outputs.permute(2,0,1))
 
 
 class NucleicTransformer(nn.Module):
 
-    def __init__(self, ntoken, nclass, ninp, nhead, nhid, nlayers, kmer_aggregation, kmers, stride=1,dropout=0.5):
+    def __init__(self, ntoken, nclass, ninp, nhead, nhid, nlayers, kmer_aggregation, kmers, dropout=0.5,return_aw=False):
         super(NucleicTransformer, self).__init__()
         self.model_type = 'Transformer'
         self.src_mask = None
@@ -148,7 +149,7 @@ class NucleicTransformer(nn.Module):
         #if self.ngrams!=None:
         self.kmer_aggregation=kmer_aggregation
         if self.kmer_aggregation:
-            self.k_mer_aggregate=K_mer_aggregate(kmers,ninp,ninp,stride=stride)
+            self.k_mer_aggregate=K_mer_aggregate(kmers,ninp,ninp)
         else:
             print("No kmer aggregation is chosen")
         self.transformer_encoder = []
@@ -159,15 +160,14 @@ class NucleicTransformer(nn.Module):
         #self.directional_encoder = nn.Embedding(3, ninp//8)
         self.ninp = ninp
         self.decoder = LinearDecoder(nclass,ninp,dropout)
-        # self.recon_decoder = LinearDecoder(ntoken,ninp,dropout,pool=False)
-        # self.error_decoder = LinearDecoder(2,ninp,dropout,pool=False)
+        self.return_aw=False
 
     def _generate_square_subsequent_mask(self, sz):
         mask = (torch.triu(torch.ones(sz, sz)) == 1).transpose(0, 1)
         mask = mask.float().masked_fill(mask == 0, float('-inf')).masked_fill(mask == 1, float(0.0))
         return mask
 
-    def forward(self, src, src_mask=None):
+    def forward(self, src):
         src = src.permute(1,0)
         #dir = dir.permute(1,0)
         src = self.encoder(src) #* math.sqrt(self.ninp)
@@ -176,18 +176,19 @@ class NucleicTransformer(nn.Module):
         src = self.pos_encoder(src)
         #if self.ngrams!=None:
         if self.kmer_aggregation:
-            src = self.k_mer_aggregate(src.permute(1,2,0)).permute(2,0,1)
-            #print(src.shape)
+            kmer_output = self.k_mer_aggregate(src.permute(1,2,0))
             #src = torch.cat([src,kmer_output],dim=0)
-            #src = kmer_output
+            src = kmer_output
         attention_weights=[]
         for layer in self.transformer_encoder:
             src,attention_weights_layer=layer(src)
             attention_weights.append(attention_weights_layer)
-        attention_weights=torch.stack(attention_weights).permute(1,0,2,3)
+
         encoder_output = src.permute(1,0,2)
         #print(encoder_output.shape)
         output = self.decoder(encoder_output)
-        # recon_src = self.recon_decoder(encoder_output)
-        # error_src = self.error_decoder(encoder_output)
-        return output, attention_weights
+        if self.return_aw:
+            attention_weights=torch.stack(attention_weights).permute(1,0,2,3)
+            return output, attention_weights
+        else:
+            return output

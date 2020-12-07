@@ -64,7 +64,7 @@ columns=['epoch','train_loss','train_acc','recon_acc',
 #build model and logger
 MODELS=[]
 for i in range(3):
-    model=TransformerModel(opts.ntoken, opts.nclass, opts.ninp, opts.nhead, opts.nhid,
+    model=NucleicTransformer(opts.ntoken, opts.nclass, opts.ninp, opts.nhead, opts.nhid,
                            opts.nlayers, opts.kmer_aggregation, kmers=opts.kmers,
                            dropout=opts.dropout).to(device)
     optimizer=torch.optim.Adam(model.parameters(), weight_decay=opts.weight_decay)
@@ -82,6 +82,16 @@ for i in range(3):
     model.load_state_dict(torch.load("best_weights/fold0top{}.ckpt".format(i+1)))
     model.eval()
     MODELS.append(model)
+
+dict=MODELS[0].module.state_dict()
+for key in dict:
+    for i in range(1,len(MODELS)):
+        dict[key]=dict[key]+MODELS[i].module.state_dict()[key]
+
+    dict[key]=dict[key]/float(len(MODELS))
+
+MODELS[0].module.load_state_dict(dict)
+avg_model=MODELS[0]
 
 def geometric_mean(preds):
     gmean=np.ones(preds.shape[1:])
@@ -104,24 +114,19 @@ labels=np.asarray(labels).astype("int")
 seqs=np.asarray(seqs).astype("int")
 
 
-batch_size=256
+batch_size=128
 batches=np.around(len(df)/batch_size+0.5).astype('int')
 preds=[]
 softmax = nn.Softmax(dim=1)
 for i in tqdm(range(batches)):
     with torch.no_grad():
         outputs=[]
-        for model in MODELS:
-            x=torch.Tensor(seqs[i*batch_size:(i+1)*batch_size]).to(device).long()
-            y=softmax(model(x,None)[0])
-            #outputs.append(softmax(y).cpu().numpy())
-            outputs.append(y.cpu().numpy())
-        outputs=np.asarray(outputs)
-        #outputs=np.mean(outputs,axis=0)
-        outputs=geometric_mean(outputs)
-
-    for pred in outputs:
-        preds.append(pred)
+        #for model in MODELS:
+        x=torch.Tensor(seqs[i*batch_size:(i+1)*batch_size]).to(device).long()
+        y=softmax(avg_model(x))
+        #outputs.append(softmax(y).cpu().numpy())
+        for vec in y:
+            preds.append(vec.cpu().numpy())
 
 from sklearn import metrics
 preds=np.asarray(preds)

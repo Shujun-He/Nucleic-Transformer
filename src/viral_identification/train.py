@@ -44,29 +44,39 @@ def get_args():
     parser.add_argument('--nfolds', type=int, default=5, help='number of cross validation folds')
     parser.add_argument('--fold', type=int, default=0, help='which fold to train')
     parser.add_argument('--val_freq', type=int, default=1, help='which fold to train')
-    parser.add_argument('--stride', type=int, default=1, help='stride used in k-mer convolution')
+    parser.add_argument('--num_workers', type=int, default=1, help='num_workers')
     opts = parser.parse_args()
     return opts
 
 def train_fold():
 
     opts=get_args()
+    seed_everything(2020)
     #gpu selection
     os.environ["CUDA_VISIBLE_DEVICES"] = opts.gpu_id
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    dataset=ViraMiner_Dataset(opts.path,opts.fold,opts.nfolds,batch_size=opts.batch_size)
+
+    train_df=pd.read_csv(os.path.join("..","fullset_train.csv"))
+    val_df=pd.read_csv(os.path.join("..","fullset_validation.csv"))
+
+    dataset=ViraminerDataset(train_df.iloc[:,1],train_df.iloc[:,2])
+    dataloader=torch.utils.data.DataLoader(dataset,batch_size=opts.batch_size,shuffle=True,num_workers=opts.num_workers)
+    val_dataset=ViraminerDataset(val_df.iloc[:,1],val_df.iloc[:,2])
+    val_dataloader=torch.utils.data.DataLoader(val_dataset,batch_size=opts.batch_size*2,shuffle=False)
+
+    #exit()
     #lr=0
 
     #checkpointing
     checkpoints_folder='checkpoints_fold{}'.format((opts.fold))
     csv_file='log_fold{}.csv'.format((opts.fold))
-    columns=['epoch','train_loss','train_acc',
+    columns=['epoch','train_acc',
              'val_loss','val_auc','val_acc','val_sens','val_spec']
     logger=CSVLogger(columns,csv_file)
 
     #build model and logger
     model=NucleicTransformer(opts.ntoken, opts.nclass, opts.ninp, opts.nhead, opts.nhid,
-                           opts.nlayers, opts.kmer_aggregation, kmers=opts.kmers, stride=opts.stride,
+                           opts.nlayers, opts.kmer_aggregation, kmers=opts.kmers,
                            dropout=opts.dropout).to(device)
     optimizer=torch.optim.Adam(model.parameters(), weight_decay=opts.weight_decay)
     criterion=nn.CrossEntropyLoss(reduction='none')
@@ -86,36 +96,17 @@ def train_fold():
         model.train(True)
         t=time.time()
         total_loss=0
-        dataset.switch_mode(training=True)
-        dataset.update_batchsize(opts.batch_size)
         optimizer.zero_grad()
-        train_preds=[]
-        #recon_preds=[]
-        #true_seqs=[]
-        for step in range(len(dataset)):
+        total_steps=len(dataloader)
+        for step, data in enumerate(dataloader):
         #for step in range(1):
             lr=lr_schedule.step()
-            data=dataset[step]
             src=data['data']
-            #directions=data['directions']
-            #directions=directions.reshape(len(directions),1)*np.ones(src.shape)
-            src=torch.Tensor(src.copy()).to(device).long()
-            labels=torch.Tensor(data['labels']).to(device).long()
-            #directions=torch.Tensor(directions).to(device).long()
-            mutated_sequence=mutate_dna_sequence(data['data'],opts.nmute)
-            #error_mask=torch.Tensor((mutated_sequence!=data['data']).reshape(-1)).to(device,dtype=torch.bool)
-            mutated_sequence=torch.Tensor(mutated_sequence).to(device).long()
-            output,attention_weights=model(mutated_sequence,None)
-            #print(attention_weights.shape)
+            labels=data['labels'].to(device)
+            mutated_sequence=mutate_dna_sequence(src,opts.nmute).to(device)
+            output=model(mutated_sequence)
             loss_weight=torch.ones(len(output),device=device)
-            #print(output.shape)
-            #print(labels.shape)
-            # pt=softmax(output)
-            # loss_weight=(1-pt[np.arange(len(labels)),labels])**2
-            #loss_weight[labels==1]=5
-            loss=torch.mean(criterion(output,labels))#+\
-            # 0.5*torch.mean(criterion(error_sequence[:,:81].reshape(-1,2),error_mask.reshape(-1).long()))+\
-            # 0.5*torch.mean(criterion(recon_sequence[:,:81].reshape(-1,4),src.reshape(-1)))
+            loss=torch.mean(criterion(output,labels))
 
 
             with amp.scale_loss(loss, optimizer) as scaled_loss:
@@ -124,27 +115,18 @@ def train_fold():
             optimizer.step()
             optimizer.zero_grad()
             total_loss+=loss
-            predictions = torch.argmax(output,dim=1).squeeze().cpu().numpy()
-            #recon_predictions = torch.argmax(recon_sequence[:,:81].reshape(-1,4),dim=1).squeeze().cpu().numpy()
-            train_preds.append(predictions)
-            #recon_preds.append(recon_predictions)
-            #true_seqs.append(data['data'].reshape(-1))
             print ("Epoch [{}/{}], Step [{}/{}] Loss: {:.3f} Lr:{:.6f} Time: {:.1f}"
-                           .format(epoch+1, opts.epochs, step+1, dataset.train_batches, total_loss/(step+1) , lr,time.time()-t),end='\r',flush=True) #total_loss/(step+1)
+                           .format(epoch+1, opts.epochs, step+1, total_steps, total_loss/(step+1) , lr,time.time()-t),end='\r',flush=True) #total_loss/(step+1)
+            #break
         print('')
-        train_preds=np.concatenate(train_preds)
-        #recon_preds=np.concatenate(recon_preds)
-        #true_seqs=np.concatenate(true_seqs)
-        ground_truths=dataset.labels[dataset.train_indices]
-        train_acc=Metrics.accuracy(train_preds,ground_truths)
+
         train_loss=total_loss/(step+1)
-        #recon_acc=np.sum(recon_preds==true_seqs)/len(recon_preds)
 
         if (epoch+1)%opts.val_freq==0:
-            val_loss,auc,val_acc,val_sens,val_spec=validate(model,device,dataset,batch_size=opts.batch_size)
-            print("Epoch {} train acc: {}".format(epoch+1,train_acc))
+            val_loss,auc,val_acc,val_sens,val_spec=validate(model,device,val_dataloader,batch_size=opts.batch_size*2)
+            print("Epoch {} train loss: {}".format(epoch+1,train_loss))
 
-            to_log=[epoch+1,train_loss,train_acc,val_loss,auc,val_acc,val_sens,val_spec]
+            to_log=[epoch+1,train_loss,val_loss,auc,val_acc,val_sens,val_spec]
             logger.log(to_log)
 
 
@@ -155,10 +137,3 @@ def train_fold():
     get_best_weights_from_fold(opts.fold)
 
 train_fold()
-
-
-# for i in range(3,10):
-    # ngrams=np.arange(2,i)
-    # print(ngrams)
-    # train_fold(0,ngrams)
-# # train_fold(0,[2,3,4])

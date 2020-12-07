@@ -9,6 +9,15 @@ import Metrics
 import numpy as np
 import os
 import pandas as pd
+import random
+
+def seed_everything(seed=42):
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
 
 def get_best_weights_from_fold(fold,top=3):
     csv_file='log_fold{}.csv'.format(fold)
@@ -23,7 +32,7 @@ def get_best_weights_from_fold(fold,top=3):
         weights_path='checkpoints_fold{}/epoch{}.ckpt'.format(fold,history.epoch[top_epochs[i]])
         print(weights_path)
         os.system('cp {} best_weights/fold{}top{}.ckpt'.format(weights_path,fold,i+1))
-    #os.system('rm -r checkpoints_fold{}'.format(fold))
+    os.system('rm -r checkpoints_fold{}'.format(fold))
 
 def smoothcrossentropyloss(pred,gold,n_class=2,smoothing=0.05):
     gold = gold.contiguous().view(-1)
@@ -35,11 +44,10 @@ def smoothcrossentropyloss(pred,gold,n_class=2,smoothing=0.05):
     return loss
 
 def mutate_dna_sequence(sequence,nmute=15):
-    to_mutate=np.random.choice(len(sequence[0]),size=(nmute),replace=False)
-    mutation=np.random.randint(4,size=(len(sequence),nmute))
-    mutated_sequence=sequence.copy()
-    mutated_sequence[:,to_mutate]=mutation
-    return mutated_sequence
+    mutation=torch.randint(0,4,size=(sequence.shape[0],nmute))
+    to_mutate = torch.randperm(sequence.shape[1])[:nmute]
+    sequence[:,to_mutate]=mutation
+    return sequence
 
 def get_MLM_mask(sequence,nmask=12):
     mask=np.zeros(sequence.shape,dtype='bool')
@@ -68,25 +76,20 @@ def save_weights(model,optimizer,epoch,folder):
 
 
 def validate(model,device,dataset,batch_size=64):
-    batches=int(len(dataset.val_indices)/batch_size)+1
+    batches=len(dataset)
     model.train(False)
     total=0
-    ground_truths=dataset.labels[dataset.val_indices]
     predictions=[]
     outputs=[]
+    ground_truths=[]
     loss=0
     criterion=nn.CrossEntropyLoss()
-    dataset.switch_mode(training=False)
-    dataset.update_batchsize(batch_size)
     with torch.no_grad():
-        for i in tqdm(range(len(dataset))):
-            data=dataset[i]
-            X=torch.Tensor(data['data']).to(device,).long()
-            Y=torch.Tensor(data['labels']).to(device,dtype=torch.int64)
-            #directions=data['directions']
-            #directions=directions.reshape(len(directions),1)*np.ones(X.shape)
-            #directions=torch.Tensor(directions).to(device).long()
-            output,_,= model(X,None)
+        for data in tqdm(dataset):
+            X=data['data'].to(device)
+            Y=data['labels'].to(device)
+
+            output= model(X)
             del X
             loss+=criterion(output,Y)
             classification_predictions = torch.argmax(output,dim=1).squeeze()
@@ -94,15 +97,14 @@ def validate(model,device,dataset,batch_size=64):
                 predictions.append(pred.cpu().numpy())
             for vector in output:
                 outputs.append(vector.cpu().numpy())
+            for t in Y:
+                ground_truths.append(t.cpu().numpy())
             del output
     torch.cuda.empty_cache()
     val_loss=(loss/batches).cpu()
+    ground_truths=np.asarray(ground_truths)
     predictions=np.asarray(predictions)
     outputs=np.asarray(outputs)
-    binary_predictions=predictions.copy()
-    binary_predictions[binary_predictions==2]=1
-    binary_ground_truths=ground_truths.copy()
-    binary_ground_truths[binary_ground_truths==2]=1
     #print(predictions)
     #print(ground_truths)
     #score=metrics.cohen_kappa_score(ground_truths,predictions,weights='quadratic')
@@ -110,8 +112,7 @@ def validate(model,device,dataset,batch_size=64):
     auc=metrics.roc_auc_score(ground_truths,outputs[:,1])
     val_sens=Metrics.sensitivity(predictions,ground_truths)
     val_spec=Metrics.specificity(predictions,ground_truths)
-    binary_acc=np.sum(binary_predictions==binary_ground_truths)/len(binary_ground_truths)
-    print('Accuracy: {}, Binary Accuracy: {} Val Loss: {}'.format(val_acc,binary_acc,val_loss))
+    print('Val accuracy: {}, Val Loss: {}'.format(val_acc,val_loss))
     return val_loss,auc,val_acc,val_sens,val_spec
 
 
