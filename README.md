@@ -14,6 +14,11 @@ I included a file (environment.yml) to recreate the exact environment I used. Si
 conda env create -f environment.yml
 ```
 
+# Repo file structure 
+
+The src folder includes all the code needed to reproduce results in the paper and the OpenVaccine competition. 
+
+
 
 # Datasets
 
@@ -30,4 +35,3 @@ Download from https://github.com/NeuroCSUT/ViraMiner. I used the same train/val/
 See https://www.kaggle.com/c/stanford-covid-vaccine/data
 
 
-# Repo file structure 
