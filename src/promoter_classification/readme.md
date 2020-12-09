@@ -2,6 +2,8 @@
 
 Dataset is included here in v9d3.csv
 
-To run: $ ./run.sh
+To run: 
+```./run.sh```
 
-To get cross validation results: $ ./evaluate.sh
+To get cross validation results: 
+```./evaluate.sh```
