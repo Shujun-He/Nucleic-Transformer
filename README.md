@@ -16,7 +16,7 @@ conda env create -f environment.yml
 
 # Repo file structure 
 
-The src folder includes all the code needed to reproduce results in the paper and the OpenVaccine competition. 
+The src folder includes all the code needed to reproduce results in the paper and the OpenVaccine competition. Additional instructions are in each folder
 
 src/promoter_classification includes all the code and file needed to reproduce results for E.coli promoter classification
 
