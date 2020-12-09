@@ -18,6 +18,12 @@ conda env create -f environment.yml
 
 The src folder includes all the code needed to reproduce results in the paper and the OpenVaccine competition. 
 
+src/promoter_classification includes all the code and file needed to reproduce results for E.coli promoter classification
+
+src/viral_identification includeds all the code needed to reproduce results for the viraminer dataset
+
+src/openvaccine includes all the code needed to run a ten-fold model for the openvaccine dataset
+
 
 
 # Datasets
