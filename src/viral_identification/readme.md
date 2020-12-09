@@ -2,6 +2,6 @@
 
 Dataset can be downloaded at https://github.com/NeuroCSUT/ViraMiner
 
-To run: $ ./run.sh
+To run:  ```./run.sh```
 
-To results on the test set: $ ./evaluate_test.sh
+To results on the test set: ```./evaluate_test.sh```
