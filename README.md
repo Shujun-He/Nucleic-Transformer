@@ -10,8 +10,9 @@ Source code to reproduce results in the paper "NUCLEIC TRANSFORMER: DEEP LEARNIN
 # Requirements
 I included a file (environment.yml) to recreate the exact environment I used. Since I also use this environment for computer vision tasks, it includes some other packages as well.
 
+```
 conda env create -f environment.yml
-
+```
 
 
 # Datasets
