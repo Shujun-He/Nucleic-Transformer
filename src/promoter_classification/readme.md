@@ -7,3 +7,5 @@ To run:
 
 To get cross validation results: 
 ```./evaluate.sh```
+
+Results will be in cv.txt
