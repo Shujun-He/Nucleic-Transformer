@@ -1,7 +1,5 @@
 # NUCLEIC TRANSFORMER: DEEP LEARNING On NUCLEIC ACIDS WITH SELF-ATTENTION AND CONVOLUTIONS
 
-[![HitCount](http://hits.dwyl.com/shujun-he/Nucleic-Transformer.svg)](http://hits.dwyl.com/shujun-he/Nucleic-Transformer)
-
 Source code to reproduce results in the paper "NUCLEIC TRANSFORMER: DEEP LEARNING On NUCLEIC ACIDS WITH SELF-ATTENTION AND CONVOLUTIONS". Preprint available on bioarxiv: https://www.biorxiv.org/content/10.1101/2021.01.28.428629v1
 
 <p align="center">
