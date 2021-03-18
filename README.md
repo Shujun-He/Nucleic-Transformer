@@ -6,6 +6,8 @@ Source code to reproduce results in the paper "NUCLEIC TRANSFORMER: DEEP LEARNIN
   <img src="https://github.com/Shujun-He/Nucleic-Transformer/blob/master/graphics/overview.PNG"/>
 </p>
 
+I also made a web app to use the models. Check it out at https://github.com/Shujun-He/Nucleic-Transformer-WebApp
+
 
 ## Requirements
 I included a file (environment.yml) to recreate the exact environment I used. Since I also use this environment for computer vision tasks, it includes some other packages as well.
