@@ -7,10 +7,15 @@ Base dataset: https://www.kaggle.com/c/stanford-covid-vaccine/data
 Unzip them to the same directory, so that the directory contains
 
 train.json
+
 test.json
+
 sample_submission.csv
+
 bpps
+
 post_deadline_files
+
 openvaccine_12x_dataset
 
 Then change the name of the folder openvaccine_12x_dataset to train_test_bpps
