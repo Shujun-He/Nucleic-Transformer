@@ -7,6 +7,9 @@ Source code to reproduce results in the paper "Nucleic Transformer: Deep Learnin
   <img src="https://github.com/Shujun-He/Nucleic-Transformer/blob/master/graphics/overview.PNG"/>
 </p>
 
+
+## How to use the models
+
 I also made a web app to use the models. Check it out at https://github.com/Shujun-He/Nucleic-Transformer-WebApp
 
 
