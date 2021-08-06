@@ -27,6 +27,8 @@ Then to activate the environment
 conda activate torch
 ```
 
+Additionally, you will need Nvidai Apex: https://github.com/NVIDIA/apex
+
 
 ## Repo file structure 
 
