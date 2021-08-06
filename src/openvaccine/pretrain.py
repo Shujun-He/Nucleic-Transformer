@@ -18,7 +18,6 @@ try:
 except ImportError:
     raise ImportError("Please install apex from https://www.github.com/nvidia/apex to run this example.")
 from torchvision import transforms, utils
-from Mutation import *
 from sklearn.model_selection import train_test_split, KFold
 
 def get_args():
