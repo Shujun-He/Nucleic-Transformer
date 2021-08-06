@@ -4,9 +4,16 @@ First download all necessary data:
 Base dataset: https://www.kaggle.com/c/stanford-covid-vaccine/data
 12x augmented dataset: https://www.kaggle.com/shujun717/openvaccine-12x-dataset
 
-Unzip them to the same directory, so that the directory contains 
-train.json
+Unzip them to the same directory, so that the directory contains
 
+train.json
+test.json
+sample_submission.csv
+bpps
+post_deadline_files
+openvaccine_12x_dataset
+
+Then change the name of the folder openvaccine_12x_dataset to train_test_bpps
 
 Here I include the hypeparameters that give the best single model.
 
