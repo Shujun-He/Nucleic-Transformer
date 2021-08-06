@@ -10,11 +10,13 @@ I also made a web app to use the models. Check it out at https://github.com/Shuj
 
 
 ## Requirements
-I included a file (environment.yml) to recreate the exact environment I used. Since I also use this environment for computer vision tasks, it includes some other packages as well.
+I included a file (environment.yml) to recreate the exact environment I used. Since I also use this environment for computer vision tasks, it includes some other packages as well. This should take around 10 minutes.
 
 ```
 conda env create -f environment.yml
 ```
+
+
 
 ## Repo file structure 
 
