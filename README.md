@@ -29,6 +29,12 @@ conda activate torch
 
 Additionally, you will need Nvidai Apex: https://github.com/NVIDIA/apex
 
+```
+git clone https://github.com/NVIDIA/apex
+cd apex
+pip install .
+```
+
 
 ## Repo file structure 
 
