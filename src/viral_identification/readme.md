@@ -4,7 +4,7 @@ Dataset can be downloaded at https://github.com/NeuroCSUT/ViraMiner/tree/master/
 
 Download fullset_test.csv, fullset_train.csv, and fullset_validation.csv and put them on directory above the folder where you plan to run training (their paths should be ../fullset_test.csv etc)
 
-To run:  ```./run.sh```
+To run training:  ```./run.sh```
 
 To check results on the test set: ```./evaluate_test.sh```
 
