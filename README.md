@@ -35,6 +35,13 @@ cd apex
 pip install .
 ```
 
+Also you need to install the Ranger optimizer
+
+```bash
+git clone https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer
+cd Ranger-Deep-Learning-Optimizer
+pip install -e . 
+```
 
 ## Repo file structure 
 
