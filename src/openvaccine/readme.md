@@ -1,7 +1,9 @@
 # Code to reproduce results for the openvaccine dataset
 
 First download all necessary data: 
+
 Base dataset: https://www.kaggle.com/c/stanford-covid-vaccine/data
+
 12x augmented dataset: https://www.kaggle.com/shujun717/openvaccine-12x-dataset
 
 Unzip them to the same directory, so that the directory contains
