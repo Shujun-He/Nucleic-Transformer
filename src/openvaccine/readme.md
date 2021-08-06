@@ -24,7 +24,7 @@ Then change the name of the folder openvaccine_12x_dataset to train_test_bpps
 
 Here I include the hypeparameters that give the best single model.
 
-0. modify the --path variable in pretrain.sh and run.sh
+0. modify the --path variable in pretrain.sh and run.sh to wherever you unzipped all the data as instructed above
 
 1. pretrain with all available sequences: ```./pretrain.sh```
 
