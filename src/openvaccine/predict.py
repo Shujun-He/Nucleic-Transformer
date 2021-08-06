@@ -267,4 +267,4 @@ with open('predictions.p','wb+') as f:
 
 submission.iloc[:,1:]=to_csv.mean(1)
 
-submission.to_csv('submission_new_squared.csv',index=False)
+submission.to_csv('submission.csv',index=False)
