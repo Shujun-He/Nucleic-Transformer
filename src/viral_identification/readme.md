@@ -6,6 +6,8 @@ Download fullset_test.csv, fullset_train.csv, and fullset_validation.csv and put
 
 To run training:  ```./run.sh```
 
+You might need to lower the batch size depending on what GPU you have. If you run into memory error with cuda, lower --batch_size in run.sh
+
 To check results on the test set: ```./evaluate_test.sh```
 
 Test results will be saved in a pickle file named test_results.p, and the AUC score will be printed out to test_score.txt
