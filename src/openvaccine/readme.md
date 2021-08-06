@@ -26,6 +26,6 @@ Here I include the hypeparameters that give the best single model.
 
 2. train on targets: ```./run.sh```
 
-3. ```python get_best_weights.py```
+3. ```python get_best_weights.py``` to extract best weights for each fold based on validation performance
 
 4. to make predictions and generate a csv file (submission.csv) for submission on kaggle: ```./predict.sh``` then you can make a submission at https://www.kaggle.com/c/stanford-covid-vaccine/submissions
