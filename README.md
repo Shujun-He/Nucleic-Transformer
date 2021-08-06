@@ -1,6 +1,7 @@
-# NUCLEIC TRANSFORMER: DEEP LEARNING On NUCLEIC ACIDS WITH SELF-ATTENTION AND CONVOLUTIONS
+# Nucleic Transformer: Deep Learning on Nucleic Acids with Self-attention and Convolutions
 
-Source code to reproduce results in the paper "NUCLEIC TRANSFORMER: DEEP LEARNING On NUCLEIC ACIDS WITH SELF-ATTENTION AND CONVOLUTIONS". Preprint available on bioarxiv: https://www.biorxiv.org/content/10.1101/2021.01.28.428629v1
+
+Source code to reproduce results in the paper "Nucleic Transformer: Deep Learning on Nucleic Acids with Self-attention and Convolutions". Preprint available on bioarxiv: https://www.biorxiv.org/content/10.1101/2021.01.28.428629v1
 
 <p align="center">
   <img src="https://github.com/Shujun-He/Nucleic-Transformer/blob/master/graphics/overview.PNG"/>
