@@ -47,11 +47,19 @@ pip install -e .
 
 The src folder includes all the code needed to reproduce results in the paper and the OpenVaccine competition. Additional instructions are in each folder
 
-src/promoter_classification includes all the code and file needed to reproduce results for E.coli promoter classification
+```src/Ecoli_Promoter_classification``` includes all the code and file needed to reproduce results for E.coli promoter classification
 
-src/viral_identification includeds all the code needed to reproduce results for the viraminer dataset
+```src/Eukaryotic_Promoters_Classification``` includes all the code and file needed to reproduce results for eukaryotic promoter classification
 
-src/openvaccine includes all the code needed to run a ten-fold model for the openvaccine dataset
+
+
+```src/Non_Coding_Variant_Effects``` includeds all the code needed to reproduce results for the deepsea dataset
+
+```src/Viral_identification``` includeds all the code needed to reproduce results for the viraminer dataset
+
+```src/Enchancer_classification``` includeds all the code needed to reproduce results for the enhancer dataset
+
+```src/OpenVaccine``` includes all the code needed to run a ten-fold model for the openvaccine dataset
 
 
 
