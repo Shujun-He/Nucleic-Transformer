@@ -58,7 +58,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 import pickle
-with open('../DeepSea_TrainVal.p','rb') as f:
+with open('DeepSea_TrainVal.p','rb') as f:
     train_seqs,train_labels,val_seqs,val_labels=pickle.load(f)
 
 #exit()
