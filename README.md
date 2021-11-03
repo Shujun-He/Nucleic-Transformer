@@ -1,4 +1,5 @@
 # Nucleic Transformer: Deep Learning on Nucleic Acids with Self-attention and Convolutions
+[![DOI](https://zenodo.org/badge/291809794.svg)](https://zenodo.org/badge/latestdoi/291809794)
 
 
 Source code to reproduce results in the paper "Nucleic Transformer: Deep Learning on Nucleic Acids with Self-attention and Convolutions". Preprint available on bioarxiv: https://www.biorxiv.org/content/10.1101/2021.01.28.428629v1
