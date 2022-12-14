@@ -65,14 +65,4 @@ The src folder includes all the code needed to reproduce results in the paper an
 
 
 
-## Datasets
-
-### Promoter classification
-
-This dataset is quite small so I include the file in the src folder
-
-### Viraminer dataset
-
-Download from https://github.com/NeuroCSUT/ViraMiner. I used the same train/val/test split as the viraminer paper.
-
 
