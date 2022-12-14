@@ -1,9 +1,9 @@
-# Nucleic Transformer: Deep Learning on Nucleic Acids with Self-attention and Convolutions
+# Nucleic Transformer: Classifying DNA sequences with Self-attention and Convolutions
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5641875.svg)](https://doi.org/10.5281/zenodo.5641875)
 
 
-Source code to reproduce results in the paper "Nucleic Transformer: Deep Learning on Nucleic Acids with Self-attention and Convolutions". Preprint available on bioarxiv: https://www.biorxiv.org/content/10.1101/2021.01.28.428629v1
+Source code to reproduce results in the paper "Nucleic Transformer: Classifying DNA sequences with Self-attention and Convolutions".
 
 <p align="center">
   <img src="https://github.com/Shujun-He/Nucleic-Transformer/blob/master/graphics/overview.PNG"/>
