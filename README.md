@@ -75,8 +75,4 @@ This dataset is quite small so I include the file in the src folder
 
 Download from https://github.com/NeuroCSUT/ViraMiner. I used the same train/val/test split as the viraminer paper.
 
-### OpenVaccine dataset
 
-For original dataset, see https://www.kaggle.com/c/stanford-covid-vaccine/data
-
-In addition to the secondary structure features given by Das Lab, I also generated additional secondary structure features at 2 temperatures with 6 biophysical packages (12x), for these features, see https://www.kaggle.com/shujun717/openvaccine-12x-dataset
