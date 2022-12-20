@@ -61,7 +61,6 @@ The src folder includes all the code needed to reproduce results in the paper an
 
 ```src/Enchancer_classification``` includeds all the code needed to reproduce results for the enhancer dataset
 
-```src/OpenVaccine``` includes all the code needed to run a ten-fold model for the openvaccine dataset
 
 
 
